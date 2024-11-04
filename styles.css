@@ -15,7 +15,7 @@ header {
     background-color: #333;
     color: #fff;
     padding: 15px 0;
-    text-align: center;
+    position: relative;
 }
 
 header nav {
@@ -24,28 +24,42 @@ header nav {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px; /* Ajout de padding pour les bords */
 }
-
 
 header .logo {
     font-size: 1.8rem;
     font-weight: 600;
 }
 
-header ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+.hamburger {
+    display: none; /* Masquer le bouton hamburger par défaut */
+    font-size: 2rem; /* Augmente la taille du bouton hamburger */
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 20px; /* Ajoute un peu d'espace */
 }
 
-header ul li a {
+.nav-links {
+    display: flex; /* Afficher les liens de navigation */
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline; /* Pour les écrans plus grands */
+}
+
+.nav-links li a {
     color: #fff;
     text-decoration: none;
     font-weight: 400;
     transition: color 0.3s ease;
 }
 
-header ul li a:hover {
+.nav-links li a:hover {
     color: #ffb400;
 }
 
@@ -54,8 +68,8 @@ header ul li a:hover {
     color: #fff;
     padding: 100px 20px;
     display: flex;
-    flex-direction: column; /* Change pour flex-direction: column pour mobile */
-    align-items: center; /* Centre le contenu */
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
@@ -85,15 +99,15 @@ header ul li a:hover {
 .hero-image {
     flex: 1;
     display: flex;
-    justify-content: center; /* Centre horizontalement */
+    justify-content: center;
 }
 
 .hero-image img {
-    width: 250px; /* Largeur fixe pour garantir une forme carrée */
-    height: 250px; /* Hauteur égale à la largeur pour un cercle parfait */
-    border-radius: 50%; /* Rendre l'image parfaitement ronde */
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Ombre subtile autour de l'image */
-    object-fit: cover; /* Remplissage de l'image sans déformation */
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
 }
 
 .btn {
@@ -123,18 +137,77 @@ h2 {
 
 .skills-grid {
     display: flex;
-    flex-wrap: wrap; /* Permet le wrap sur mobile */
+    flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-around;
-    text-align: center;
+    justify-content: center;
 }
 
 .skill-item {
-    background-color: #fff;
+    background: #fff;
     padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    flex: 1 1 30%; /* Prend au moins 30% de l'espace disponible */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1 1 30%;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Style pour le menu sur mobile */
+.hamburger {
+    display: block; /* Affiche le bouton hamburger sur mobile */
+}
+
+#nav-links {
+    display: none; /* Masquer le menu par défaut */
+    flex-direction: column; /* Afficher les éléments en colonne */
+    background-color: #333; /* Couleur de fond pour le menu */
+    position: absolute; /* Positionner le menu */
+    top: 60px; /* Distance du haut de l'écran */
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* S'assurer que le menu est au-dessus des autres éléments */
+}
+
+#nav-links li {
+    margin: 10px 0; /* Espacement entre les éléments */
+}
+
+#nav-links.show {
+    display: flex; /* Afficher le menu quand il est activé */
+}
+
+@media (min-width: 768px) {
+    .hamburger {
+        display: none; /* Masquer le hamburger sur les écrans plus larges */
+    }
+
+    .nav-links {
+        display: flex; /* Afficher le menu sous forme de ligne */
+        position: static; /* Réinitialiser la position pour les écrans plus larges */
+        background-color: transparent; /* Fond transparent pour les écrans plus larges */
+        flex-direction: row; /* Éléments en ligne */
+    }
+
+    #nav-links {
+        display: flex; /* Affiche le menu directement sur les écrans plus larges */
+        position: static; /* Réinitialiser la position */
+        flex-direction: row; /* Éléments en ligne */
+    }
+}
+
+#contact {
+    padding: 60px 20px;
+    text-align: center; /* Centrer le texte */
+}
+
+#contact .btn {
+    display: inline-block; /* S'assurer que le bouton est bien affiché */
+    margin: 20px auto; /* Centrer le bouton */
 }
 
 .experience-item {
@@ -143,119 +216,4 @@ h2 {
     margin-bottom: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border-left: 5px solid #ffb400;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-form input, form textarea {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-form button {
-    padding: 15px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-form button:hover {
-    background-color: #ffb400;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
-
-#contact {
-    padding: 60px 20px;
-    text-align: center; /* Centre le texte à l'intérieur de la section */
-}
-
-#contact .btn {
-    margin-top: 20px; /* Ajoute un espace au-dessus du bouton */
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .hero-text h1 {
-        font-size: 2rem; /* Taille de police réduite pour les petits écrans */
-    }
-
-    .hero-text p {
-        font-size: 1rem; /* Réduit la taille de police pour le texte */
-    }
-
-    h2 {
-        font-size: 1.8rem; /* Réduit la taille des titres */
-    }
-
-    .skills-grid {
-        flex-direction: column; /* Colonne sur mobile */
-        align-items: center; /* Centre les items */
-    }
-
-    .skill-item {
-        flex: 1 1 100%; /* Chaque item prend 100% sur mobile */
-    }
-}
-
-/* Cacher la liste de navigation et afficher le hamburger sur mobile */
-header nav {
-    position: relative;
-}
-
-.hamburger {
-    display: none;
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    transition: transform 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    .nav-links.show {
-        display: flex;
-    }
-
-    .nav-links li {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .hamburger {
-        display: inline-block;
-    }
 }
