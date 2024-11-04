@@ -26,6 +26,7 @@ header nav {
     margin: 0 auto;
 }
 
+
 header .logo {
     font-size: 1.8rem;
     font-weight: 600;
@@ -209,5 +210,52 @@ footer {
 
     .skill-item {
         flex: 1 1 100%; /* Chaque item prend 100% sur mobile */
+    }
+}
+
+/* Cacher la liste de navigation et afficher le hamburger sur mobile */
+header nav {
+    position: relative;
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .hamburger {
+        display: inline-block;
     }
 }
