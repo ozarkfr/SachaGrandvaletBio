@@ -31,7 +31,16 @@ header .logo {
     font-weight: 600;
 }
 
-header ul {
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
@@ -53,18 +62,14 @@ header ul li a:hover {
     color: #fff;
     padding: 100px 20px;
     display: flex;
-    flex-direction: column; /* Change pour flex-direction: column pour mobile */
-    align-items: center; /* Centre le contenu */
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.hero-text {
-    flex: 1;
 }
 
 .hero-text h1 {
@@ -81,27 +86,19 @@ header ul li a:hover {
     margin-bottom: 30px;
 }
 
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center; /* Centre horizontalement */
-}
-
 .hero-image img {
-    width: 250px; /* Largeur fixe pour garantir une forme carrée */
-    height: 250px; /* Hauteur égale à la largeur pour un cercle parfait */
-    border-radius: 50%; /* Rendre l'image parfaitement ronde */
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Ombre subtile autour de l'image */
-    object-fit: cover; /* Remplissage de l'image sans déformation */
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
 }
 
 .btn {
-    display: inline-block;
     padding: 10px 20px;
     background-color: #ffb400;
     color: #fff;
     text-decoration: none;
-    font-size: 1rem;
     border-radius: 50px;
     transition: background-color 0.3s ease;
 }
@@ -110,104 +107,28 @@ header ul li a:hover {
     background-color: #e69500;
 }
 
-#about, #skills, #experience, #contact {
-    padding: 60px 20px;
-}
-
-h2 {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap; /* Permet le wrap sur mobile */
-    gap: 20px;
-    justify-content: space-around;
-    text-align: center;
-}
-
-.skill-item {
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    flex: 1 1 30%; /* Prend au moins 30% de l'espace disponible */
-}
-
-.experience-item {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid #ffb400;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-form input, form textarea {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-form button {
-    padding: 15px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-form button:hover {
-    background-color: #ffb400;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
-
-#contact {
-    padding: 60px 20px;
-    text-align: center; /* Centre le texte à l'intérieur de la section */
-}
-
-#contact .btn {
-    margin-top: 20px; /* Ajoute un espace au-dessus du bouton */
-}
-
-/* Media Queries */
 @media (max-width: 768px) {
-    .hero-text h1 {
-        font-size: 2rem; /* Taille de police réduite pour les petits écrans */
+    .menu-toggle {
+        display: block;
     }
 
-    .hero-text p {
-        font-size: 1rem; /* Réduit la taille de police pour le texte */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+        padding: 20px 0;
     }
 
-    h2 {
-        font-size: 1.8rem; /* Réduit la taille des titres */
+    .nav-links.active {
+        display: flex;
     }
 
-    .skills-grid {
-        flex-direction: column; /* Colonne sur mobile */
-        align-items: center; /* Centre les items */
-    }
-
-    .skill-item {
-        flex: 1 1 100%; /* Chaque item prend 100% sur mobile */
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
     }
 }
