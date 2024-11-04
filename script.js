@@ -1,3 +1,4 @@
+// Gestion du formulaire de contact
 document.getElementById('contact-form').addEventListener('submit', function (e) {
     e.preventDefault(); // Empêche le rechargement de la page
     const form = this;
@@ -22,5 +23,10 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
         resultDiv.textContent = "Erreur lors de l'envoi du message. Veuillez réessayer.";
         resultDiv.style.color = "red";
     });
-    
+});
+
+// Gestion du menu hamburger pour mobile
+document.getElementById('hamburger').addEventListener('click', function () {
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('show'); // Ajoute ou retire la classe 'show' pour afficher/masquer le menu
 });
