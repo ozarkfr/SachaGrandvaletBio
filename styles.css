@@ -53,8 +53,8 @@ header ul li a:hover {
     color: #fff;
     padding: 100px 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Change pour flex-direction: column pour mobile */
+    align-items: center; /* Centre le contenu */
     text-align: center;
 }
 
@@ -122,6 +122,7 @@ h2 {
 
 .skills-grid {
     display: flex;
+    flex-wrap: wrap; /* Permet le wrap sur mobile */
     gap: 20px;
     justify-content: space-around;
     text-align: center;
@@ -132,7 +133,7 @@ h2 {
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    flex: 1;
+    flex: 1 1 30%; /* Prend au moins 30% de l'espace disponible */
 }
 
 .experience-item {
@@ -187,3 +188,26 @@ footer {
     margin-top: 20px; /* Ajoute un espace au-dessus du bouton */
 }
 
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2rem; /* Taille de police réduite pour les petits écrans */
+    }
+
+    .hero-text p {
+        font-size: 1rem; /* Réduit la taille de police pour le texte */
+    }
+
+    h2 {
+        font-size: 1.8rem; /* Réduit la taille des titres */
+    }
+
+    .skills-grid {
+        flex-direction: column; /* Colonne sur mobile */
+        align-items: center; /* Centre les items */
+    }
+
+    .skill-item {
+        flex: 1 1 100%; /* Chaque item prend 100% sur mobile */
+    }
+}
